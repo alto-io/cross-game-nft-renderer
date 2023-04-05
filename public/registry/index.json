@@ -1,0 +1,18 @@
+{
+    "arcadians": {
+        "name": "Arcadians by OP Games",
+        "address": "0xc3c8a1e1ce5386258176400541922c414e1b35fd",
+        "chainid": "1",
+        "renderer_url": "https://xgr-arcadians.opgames.org/renderer.json"
+    },
+    "cryptokitties": {
+        "name": "Cryptokitties",
+        "address": "0x06012c8cf97bead5deae237070f9587f8e7a266d",
+        "chainid": "1"
+    },
+    "loot": {
+        "name": "Loot Project",
+        "address": "0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7",
+        "chainid": "1"
+    }    
+}
