@@ -66,17 +66,31 @@ function NftDetails({ nft }: { nft?: NftMetadata }) {
     return null
   }
 
+  const IPFS_PREFIX = "ipfs://";
+  const IPFS_GATEWAY = "https://ipfs.io/ipfs/"
+
   const { image } = nft
   const name = nft.name || "Untitled"
   const description = nft.description || "−"
+
+
   return (
     <>
       <div>
-        {image.includes(".mp4") ? (
+        {
+        
+        image.includes(".mp4") ? (
           <LoopVideo type="video/mp4" src={image} height="280" />
-        ) : (
+        ) : 
+        
+        image.includes(IPFS_PREFIX) ? (
+          <img src={IPFS_GATEWAY + image.split(IPFS_PREFIX)[1]} height="280"/>
+        )
+        :
+        (
           image && <img src={image} height="280" alt="" />
-        )}
+        )
+        }
       </div>
       <h1>
         <span title={name}>{name}</span>
