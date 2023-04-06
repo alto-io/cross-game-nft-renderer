@@ -18,7 +18,22 @@ function NftGrid({ nftCollections }: NftGridProps) {
     },
   })
 
-  useEffect(() => setProgress(1), [])
+  let list;
+
+  async function loadRegistry() {
+    list = await fetch("registry/index.json").then(
+      (response) => {
+        response.json();
+      }
+    );
+
+    console.log(list);
+  }
+
+  useEffect(() => {
+    setProgress(1);
+    loadRegistry();
+  }, [])
 
   return (
     <div className={styles.cardgrid}

@@ -93,10 +93,6 @@ function NftCard({ contract, collectionName, collectionUrl }: NftProps) {
         </div>
 
         <TokenIdInput tokenId={tokenId} onRefresh={refreshToken}></TokenIdInput>
-        <select name="renderer" id="renderer">
-            <option value="default">useNFT</option>
-            <option value="saab">.arca</option>
-        </select>        
         <Nft 
             contract={contract}
             tokenId={tokenId}/>
