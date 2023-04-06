@@ -1,0 +1,97 @@
+import styles from "../styles/nft.module.css";
+import { useSpring, a } from "react-spring"
+import type { NftMetadata } from "use-nft"
+import React, { useState } from "react"
+import LoopVideo from "./LoopVideo"
+
+function NftDetails({ nft }: { nft?: NftMetadata }) {
+  
+    type Attribute = {
+        trait_type: string
+        value: string
+    }
+
+    const IMAGE_HEIGHT = 280;
+
+    const [flipped, set] = useState(false);
+    const { transform, opacity } = useSpring({
+      opacity: flipped ? 1 : 0,
+      transform: `perspective(600px) rotateY(${flipped ? 180 : 0}deg)`,
+      config: { mass: 5, tension: 500, friction: 80 }
+    });
+      
+    const IPFS_PREFIX = "ipfs://";
+    const IPFS_GATEWAY = "https://ipfs.io/ipfs/"
+  
+    if (!nft) {
+        return null
+      }
+ 
+    const { image, rawData } = nft
+    const name = nft.name || "Untitled"
+    const description = nft.description || "−"
+
+    let attributes = rawData?.attributes;
+        
+
+    return (
+      <div>
+  
+        <div className={styles.container} onClick={() => set((state) => !state)}>
+            <a.div
+              className={`${styles.c} ${styles.back}`}
+              style={{ opacity: opacity.to((o) => 1 - o), transform }}
+            >
+              {
+              
+              image.includes(".mp4") ? (
+                <LoopVideo type="video/mp4" src={image} height={IMAGE_HEIGHT} />
+              ) : 
+              
+              image.includes(IPFS_PREFIX) ? (
+                <img src={IPFS_GATEWAY + image.split(IPFS_PREFIX)[1]} height={IMAGE_HEIGHT}/>
+              )
+              :
+              (
+                image && <img src={image} height={IMAGE_HEIGHT} alt="" />
+              )
+              }
+            </a.div>
+            <a.div
+              className={`${styles.c} ${styles.front}`}
+              style={{
+                opacity,
+                transform,
+                rotateY: "180deg"
+              }}
+              >
+              {
+                  (attributes as any) ?  
+                  (attributes as Array<Attribute>).map((attrib) => {
+                      return (
+                          <p key={attrib.trait_type}>{attrib.trait_type} : {attrib.value}</p>
+                          
+                      )
+                  })
+                 :
+                 <div>
+                  <p>No Attributes from use-nft</p>
+                 </div>
+              }
+            </a.div>            
+          </div>    
+        <a.div className={styles.nftdetails}>
+          <h1>
+            <span title={name}>{name}</span>
+          </h1>
+          <p
+            title={description}
+          >
+            {description}
+          </p>
+        </a.div>
+      </div>
+    )
+  }
+  
+  export default NftDetails
