@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '../styles/Home.module.css'
 import NftGrid from 'components/NftGrid'
-import nftCollections from "../assets/nftCollections"
 import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
