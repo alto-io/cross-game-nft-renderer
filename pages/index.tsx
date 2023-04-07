@@ -4,10 +4,40 @@ import { Inter } from 'next/font/google'
 import styles from '../styles/Home.module.css'
 import NftGrid from 'components/NftGrid'
 import nftCollections from "../assets/nftCollections"
+import { useState, useEffect } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  const [collections, setCollections] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const REGISTRY_URL = "registry/index.json";
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(REGISTRY_URL);
+
+        if (!response.ok) {
+          throw new Error(`Error fetching data: ${response.statusText}`);
+        }
+
+        const jsonData = await response.json();
+        setCollections(jsonData);
+      } catch (err) {
+        setError((err as any).message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  },[])
+
   return (
     <>
       <Head>
@@ -40,7 +70,7 @@ export default function Home() {
         </div>
 
         <div className={styles.center}>
-        <NftGrid nftCollections={[...nftCollections]} />
+        <NftGrid nftCollections={collections} />
           
         </div>
 
@@ -84,7 +114,7 @@ export default function Home() {
               use-nft <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
-              This project uses spectre&apos;s use-nft as a fallback renderer
+              This project uses spectre&apos;s use-nft to retrieve NFT attributes and as a fallback renderer
             </p>
           </a>
 

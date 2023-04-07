@@ -4,11 +4,12 @@ import styles from '../styles/Home.module.css'
 import NftCard from "./NftCard"
 
 type NftGridProps = {
-  nftCollections: Array<[string, string, string, Array<string>]>
+  nftCollections: any;
 }
 
 function NftGrid({ nftCollections }: NftGridProps) {
   const [progress, setProgress] = useState(0)
+
   const trail = useTrail(nftCollections.length, {
     progress,
     config: {
@@ -18,31 +19,18 @@ function NftGrid({ nftCollections }: NftGridProps) {
     },
   })
 
-  let list;
-
-  async function loadRegistry() {
-    list = await fetch("registry/index.json").then(
-      (response) => {
-        response.json();
-      }
-    );
-
-    console.log(list);
-  }
-
   useEffect(() => {
     setProgress(1);
-    loadRegistry();
   }, [])
 
   return (
     <div className={styles.cardgrid}
     >
       {trail.map(({ progress }, index) => {
-        const [contract, collectionName, collectionUrl] = nftCollections[index]
+        const collection = nftCollections[index];
         return (
           <a.div
-            key={contract}
+            key={collection.address}
             style={{
               opacity: progress as any, // until react-spring 9.0.0-rc.4, see https://github.com/pmndrs/react-spring/issues/1102
               transform: progress.to(
@@ -51,9 +39,9 @@ function NftGrid({ nftCollections }: NftGridProps) {
             }}
           >
             <NftCard
-              contract={contract}
-              collectionName={collectionName}
-              collectionUrl={collectionUrl}
+              contract={collection.address}
+              collectionName={collection.name}
+              collectionUrl={collection.homepage}
             />
           </a.div>
         )
