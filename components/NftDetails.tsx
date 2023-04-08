@@ -1,16 +1,25 @@
 import styles from "../styles/nft.module.css";
-import { useSpring, a } from "react-spring"
+import { useSpring, useTransition, a } from "react-spring"
 import type { NftMetadata } from "use-nft"
 import React, { useState } from "react"
 import LoopVideo from "./LoopVideo"
+import XGR from "./xgr"
 
-function NftDetails({ nft, rendererUrl, xgr }: { nft?: NftMetadata, rendererUrl: string, xgr: boolean }) {
-  
-    type Attribute = {
-        trait_type: string
-        value: string
-    }
+type Attribute = {
+    trait_type: string
+    value: string
+}
 
+type NftDetailsProps = {
+    nft: NftMetadata
+    tokenId: string
+    rendererUrl: string
+    xgr: boolean
+  }
+
+
+function NftDetails({ nft, rendererUrl, xgr, tokenId }: NftDetailsProps) {
+        
     const IMAGE_HEIGHT = 280;
 
     const [flipped, set] = useState(false);
@@ -19,6 +28,15 @@ function NftDetails({ nft, rendererUrl, xgr }: { nft?: NftMetadata, rendererUrl:
       transform: `perspective(600px) rotateY(${flipped ? 180 : 0}deg)`,
       config: { mass: 5, tension: 500, friction: 80 }
     });
+
+    const xgrToggleAnimation = useTransition(xgr, {
+        from: { transform: 'scaleX(0)' },
+        enter: { transform: 'scaleX(1)' },
+        leave: { transform: 'scaleX(0)' },
+        config: {
+          duration: 500,
+        },      
+    })
       
     const IPFS_PREFIX = "ipfs://";
     const IPFS_GATEWAY = "https://ipfs.io/ipfs/"
@@ -31,8 +49,8 @@ function NftDetails({ nft, rendererUrl, xgr }: { nft?: NftMetadata, rendererUrl:
     const name = nft.name || "Untitled"
     const description = nft.description || "−"
 
+
     let attributes = rawData?.attributes;
-        
 
     return (
       <div>
@@ -42,13 +60,20 @@ function NftDetails({ nft, rendererUrl, xgr }: { nft?: NftMetadata, rendererUrl:
               className={`${styles.c} ${styles.back}`}
               style={{ opacity: opacity.to((o) => 1 - o), transform }}
             >
-              {rendererUrl && xgr && 
-                <div
-                    style={{
-                        position: "absolute"
-                    }}
-                >XGR!</div>
-              }
+              {
+                rendererUrl && 
+                (
+                    xgrToggleAnimation((xgrstyles, item) => 
+                        item ? 
+                        (
+                        <a.div className={styles.xgrcontainer} style={xgrstyles}>
+                            <XGR rendererUrl={rendererUrl} tokenId={tokenId}/>
+                        </a.div>
+        
+                        ) : null
+                    )
+                )}
+
               {
               
               image.includes(".mp4") ? (

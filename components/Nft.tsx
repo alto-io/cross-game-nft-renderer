@@ -23,7 +23,7 @@ function Nft({ contract, tokenId, rendererUrl, xgr }: NftProps) {
         if (error) return <NftError error={error} reload={reload} />
         return (
 
-        <NFTDetails nft={nft} xgr={xgr} rendererUrl={rendererUrl} />
+        <NFTDetails nft={nft} xgr={xgr} rendererUrl={rendererUrl} tokenId={tokenId}/>
         
         )
 
