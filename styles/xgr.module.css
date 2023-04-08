@@ -1,0 +1,45 @@
+.xgrdiv {
+    position: absolute;
+    top: 50px;
+    right: 0px;
+}
+
+.xgrswitch {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .xgrtext {
+    margin-right: 8px;
+  }
+  
+  .xgron {
+    background-color: #76b900;
+    color: #ffffff;
+  }
+  
+  .xgroff {
+    background-color: #cccccc;
+    color: #666666;
+  }
+ 
+  .xgroff:hover {
+    box-shadow: 0 0 10px #76b900; /* Black color with 20% transparency */
+  }
+
+  .xgron:hover {
+    box-shadow: 0 0 10px #cccccc;
+  }
+
+  
+  .xgroff .xgrtext,
+  .xgroff .xgrstatus {
+    filter: grayscale(100%);
+  }

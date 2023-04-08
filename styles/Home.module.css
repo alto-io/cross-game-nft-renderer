@@ -81,13 +81,19 @@
 }
 
 .cardsection {
-  cursor: pointer;
   border-radius: 15px;
   display: grid;
   height: 100%;
   place-items: center;
   grid-template-columns: 100%;
   background: #123;  
+}
+
+.nftsection {
+  justify-content: center;
+  padding: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
 }
 
 .cardlabel {
@@ -99,7 +105,7 @@
     color: #000000;
     background: #a669a2;
     font-family: var(--font-mono);
-
+    transition: color 0.3s;
 }
 
 .cardtokenid {
@@ -111,11 +117,12 @@
     color: #000000;
     background: #a669a2;
     font-family: var(--font-mono);
-}
+    transition: color 0.3s;
+  }
 
 .hidden {
   z-index: -2;
-    position: absolute;
+  position: absolute;
   
 }
 

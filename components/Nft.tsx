@@ -2,15 +2,18 @@ import type { ReactNode } from "react"
 
 import React from "react"
 import { useNft } from "use-nft"
+import styles from "../styles/Home.module.css"
 
 import NFTDetails from "./NftDetails"
 
 type NftProps = {
   contract: string
   tokenId: string
+  rendererUrl: string
+  xgr: boolean
 }
 
-function Nft({ contract, tokenId }: NftProps) {
+function Nft({ contract, tokenId, rendererUrl, xgr }: NftProps) {
   const { nft, loading, error, reload } = useNft(contract, tokenId)
 
   return (
@@ -20,7 +23,7 @@ function Nft({ contract, tokenId }: NftProps) {
         if (error) return <NftError error={error} reload={reload} />
         return (
 
-        <NFTDetails nft={nft} />
+        <NFTDetails nft={nft} xgr={xgr} rendererUrl={rendererUrl} />
         
         )
 
@@ -35,12 +38,9 @@ function Card({
   children: ReactNode
 }) {
   return (
-      <section
+      <section className={styles.nftsection}
       >
-        <div
-        >
           {children}
-        </div>
       </section>
   )
 }

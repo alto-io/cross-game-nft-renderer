@@ -4,7 +4,7 @@ import type { NftMetadata } from "use-nft"
 import React, { useState } from "react"
 import LoopVideo from "./LoopVideo"
 
-function NftDetails({ nft }: { nft?: NftMetadata }) {
+function NftDetails({ nft, rendererUrl, xgr }: { nft?: NftMetadata, rendererUrl: string, xgr: boolean }) {
   
     type Attribute = {
         trait_type: string
@@ -42,6 +42,13 @@ function NftDetails({ nft }: { nft?: NftMetadata }) {
               className={`${styles.c} ${styles.back}`}
               style={{ opacity: opacity.to((o) => 1 - o), transform }}
             >
+              {rendererUrl && xgr && 
+                <div
+                    style={{
+                        position: "absolute"
+                    }}
+                >XGR!</div>
+              }
               {
               
               image.includes(".mp4") ? (
@@ -85,6 +92,9 @@ function NftDetails({ nft }: { nft?: NftMetadata }) {
             <span title={name}>{name}</span>
           </h1>
           <p
+            style={{
+                height:"70px"
+            }}
             title={description}
           >
             {description}

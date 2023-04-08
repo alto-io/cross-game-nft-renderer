@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useRef, MutableRefObject } from "react"
 import styles from '../styles/Home.module.css'
+import xgrstyles from '../styles/xgr.module.css'
 import Nft from "./Nft"
+import XGRSwitch from "components/xgrswitch"
 
 type NftProps = {
   contract: string
   collectionName: string
   collectionUrl: string
+  rendererUrl: string
 }
 
 type TokenIdProps = {
@@ -73,10 +76,10 @@ function TokenIdInput({tokenId, onRefresh } : TokenIdProps) {
     )
 }
 
-function NftCard({ contract, collectionName, collectionUrl }: NftProps) {
+function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftProps) {
 
     const [tokenId, setTokenId] = useState("1");
-    
+    const [xgr, setXgr] = useState(true);    
 
     useEffect(() => {
         setTokenId(Math.floor(Math.random() *  MAX_TOKEN_ID).toString());
@@ -93,9 +96,19 @@ function NftCard({ contract, collectionName, collectionUrl }: NftProps) {
         </div>
 
         <TokenIdInput tokenId={tokenId} onRefresh={refreshToken}></TokenIdInput>
+        {
+            rendererUrl && (
+                <div className={xgrstyles.xgrdiv}>
+                    <XGRSwitch xgr={xgr} setXgr={setXgr}/>
+                </div>
+            )
+        }
         <Nft 
             contract={contract}
-            tokenId={tokenId}/>
+            tokenId={tokenId}
+            rendererUrl={rendererUrl}
+            xgr={xgr}
+            />
       </section>
   )
 }

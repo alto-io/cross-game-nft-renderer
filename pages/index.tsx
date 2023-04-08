@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Cross-Game Renderer</title>
+        <title>XGR: Cross-Game Renderer</title>
         <meta name="description" content="An open and flexible standard that allows your NFT to be displayed (and animated!) in any game" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -48,7 +48,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <p>
-            Cross-Game Renderer: Display and animate NFTs in any game
+            Cross-Game Renderer (XGR): Display and animate NFTs in any game
           </p>
           <div>
             <a
