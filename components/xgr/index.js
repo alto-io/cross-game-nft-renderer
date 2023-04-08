@@ -46,15 +46,14 @@ const XGR = ({rendererUrl, tokenId}) => {
   return (
     <iframe 
         src={url}
+        scrolling='no'
         style={{
             position: 'absolute',
             top: 0,
             left: 0,
             width: '280px',
             height: '280px',
-            resize: 'both',
-            oveflow: 'auto',
-            border: 'none'
+            overflow: 'hidden'
           }}        
     />
   );
