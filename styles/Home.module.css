@@ -80,6 +80,18 @@
   max-width: 30ch;
 }
 
+.addcollection {
+  cursor: pointer;
+  border-radius: 15px;
+  height: 100%;
+  background: #123;  
+  transition: box-shadow 0.3s;
+}
+
+.addcollection:hover {
+  box-shadow: 0 0 15px gold;
+}
+
 .cardsection {
   border-radius: 15px;
   display: grid;
@@ -96,6 +108,16 @@
   font-size: 0.8rem;
 }
 
+.addbutton {
+  font-size: 15rem;
+  position: relative;
+  color: #a669a2;
+  text-align: center;
+  font-family: var(--font-mono);
+  position: relative;
+
+}
+
 .cardlabel {
   font-size: 1.1rem;
     position: absolute;
@@ -107,6 +129,18 @@
     font-family: var(--font-mono);
     transition: color 0.3s;
 }
+
+.addcardlabel {
+  font-size: 1.5rem;
+    top: 0;
+    left: 0;
+    padding: 2px 10px;
+    color: #000000;
+    background: #a669a2;
+    font-family: var(--font-mono);
+    text-align: center;
+}
+
 
 .cardtokenid {
   font-size: 1.5rem;

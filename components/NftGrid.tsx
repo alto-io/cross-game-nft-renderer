@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useTrail, a } from "react-spring"
 import styles from '../styles/Home.module.css'
 import NftCard from "./NftCard"
+import AddNftCard from "./AddNftCard"
 
 type NftGridProps = {
   nftCollections: any;
@@ -47,6 +48,8 @@ function NftGrid({ nftCollections }: NftGridProps) {
           </a.div>
         )
       })}
+
+      <AddNftCard/>
     </div>
   )
 }
