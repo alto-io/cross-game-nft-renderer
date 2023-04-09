@@ -114,6 +114,7 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftPr
             tokenId={tokenId}
             rendererUrl={rendererUrl}
             xgr={xgr}
+            randomRefresh={randomToken}
             />
       </section>
   )

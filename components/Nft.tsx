@@ -11,16 +11,17 @@ type NftProps = {
   tokenId: string
   rendererUrl: string
   xgr: boolean
+  randomRefresh: any
 }
 
-function Nft({ contract, tokenId, rendererUrl, xgr }: NftProps) {
+function Nft({ contract, tokenId, rendererUrl, xgr, randomRefresh }: NftProps) {
   const { nft, loading, error, reload } = useNft(contract, tokenId)
 
   return (
     <Card >
       {(() => {
         if (loading) return <NftLoading />
-        if (error) return <NftError error={error} reload={reload} />
+        if (error) return <NftError error={error} reload={reload} randomRefresh={randomRefresh} />
         return (
 
         <NFTDetails nft={nft} xgr={xgr} rendererUrl={rendererUrl} tokenId={tokenId}/>
@@ -54,13 +55,13 @@ function NftLoading() {
   )
 }
 
-function NftError({ error, reload }: { error: Error; reload: () => void }) {
+function NftError({ error, reload, randomRefresh }: { error: Error; reload: () => void; randomRefresh: any }) {
   return (
     <div
     >
       <p>
-        Loading error.
-        <br /> <button onClick={reload}>Retry?</button>
+        Unable to load token details 🙇
+        <br /> <button onClick={randomRefresh}>Retry?</button>
       </p>
     </div>
   )
