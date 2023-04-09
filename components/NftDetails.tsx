@@ -118,7 +118,7 @@ function NftDetails({ nft, rendererUrl, xgr, tokenId }: NftDetailsProps) {
           </h1>
           <p
             style={{
-                height:"70px"
+                height:"80px"
             }}
             title={description}
           >

@@ -89,6 +89,11 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftPr
     setTokenId(newId);
   }
 
+  const randomToken = () => {
+    var id = Math.floor(Math.random() * MAX_TOKEN_ID);
+    setTokenId(id.toString());
+  }
+
   return (
     <section className={styles.cardsection}>
         <div className={styles.cardlabel}>
@@ -103,6 +108,7 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftPr
                 </div>
             )
         }
+        <button className={styles.randombutton} onClick={randomToken}>🎲</button>
         <Nft 
             contract={contract}
             tokenId={tokenId}
