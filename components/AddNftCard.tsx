@@ -11,7 +11,7 @@ function AddNftCard() {
         <section className={styles.addcollection}>
 
         <div className={styles.addcardlabel}>
-            Add an NFT Collection
+            Add Collection
             </div>
 
         <p className={styles.addbutton}>+</p>
