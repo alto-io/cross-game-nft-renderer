@@ -23,5 +23,23 @@
         "homepage":  "https://www.lootproject.com",
         "address": "0xff9c1b15b16263c61d017ee9f65c50e4ae0113d7",
         "chainid": "1"
-    }    
+    },
+    {
+        "name": "Nouns",
+        "homepage": "https://nouns.wtf",
+        "address": "0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03",
+        "chainid": "1"
+    },
+    {
+        "name": "Fire Dynos",
+        "homepage": "https://angrydynomiteslab.com",
+        "address" : "0xee85b6ce11276b50c72b2504776f8faa36f29931",
+        "chainid": "1"
+    },
+    {
+        "name": "MightyNet",
+        "homepage": "https://opensea.io/collection/big-bear-syndicate",
+        "address" : "0x313dfa45d14c8c765db55de38ff9734b62bf90d9",
+        "chainid": "1"
+    }
 ]

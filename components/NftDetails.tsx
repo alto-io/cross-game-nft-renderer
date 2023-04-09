@@ -21,6 +21,7 @@ type NftDetailsProps = {
 function NftDetails({ nft, rendererUrl, xgr, tokenId }: NftDetailsProps) {
         
     const IMAGE_HEIGHT = 280;
+    const MAX_DESCRIPTION_LENGTH = 200;
 
     const [flipped, set] = useState(false);
     const { transform, opacity } = useSpring({
@@ -120,9 +121,8 @@ function NftDetails({ nft, rendererUrl, xgr, tokenId }: NftDetailsProps) {
             style={{
                 height:"80px"
             }}
-            title={description}
           >
-            {description}
+            {description.substring(0, MAX_DESCRIPTION_LENGTH)}
           </p>
         </a.div>
       </div>

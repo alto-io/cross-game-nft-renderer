@@ -56,12 +56,18 @@ function NftLoading() {
 }
 
 function NftError({ error, reload, randomRefresh }: { error: Error; reload: () => void; randomRefresh: any }) {
+
+  console.log(error);
+
   return (
     <div
     >
       <p>
-        Unable to load token details 🙇
-        <br /> <button onClick={randomRefresh}>Retry?</button>
+        Unable to load attributes 🙇 
+        <br />
+        Please keep trying, this is usually just a network hiccup
+        <br />
+        <br /> <button onClick={randomRefresh}>Retry</button>
       </p>
     </div>
   )
