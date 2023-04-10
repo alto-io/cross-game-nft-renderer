@@ -26,7 +26,7 @@ To do so, simply create a pull request updating the registry on [public/registry
 
 The **renderer_url** is the starting point for XGR-enabling a collection. It has to be in JSON format and retrievable via a URL. 
 
-The XGR-Arcadians example hosts its **renderer_url** on [https://xgr-arcadians.opgames.org/renderer.json]("https://xgr-arcadians.opgames.org/renderer.json"), and is shown below:
+The XGR-Arcadians example hosts its **renderer_url** on [https://xgr-arcadians.opgames.org/renderer.json](https://xgr-arcadians.opgames.org/renderer.json), and is shown below:
 
 ```yaml
 {
@@ -43,10 +43,11 @@ The XGR-Arcadians example hosts its **renderer_url** on [https://xgr-arcadians.o
 
 The **name**, **description**, **project_url**, **image**, and **animation_url** fields are required. The **image** and **animation_url** works similarly to how they are used in marketplaces such as Opensea, and will be appended with a tokenid.
 
-The **playground_url**, **ora_url** and **gltf_url** are specific to the XGR-Arcadians implementation. Other implementations can add the fields developers will need to download for their collection assets.
+The **playground_url**, **ora_url** and **gltf_url** are specific to the XGR-Arcadians implementation. Other implementations can add whichever fields developers will need to support their collection assets.
 
 
 ## Further Work
 
 * XGR-Arcadians uses GLTF, which is more broadly supported on 3D Game engines such as BabylonJS and Unity. An animation implementation for 2D engines such as Phaser would be very useful, perhaps using [.json files for 2d skeletal animation](https://github.com/EsotericSoftware/spine-runtimes/).
+
 * While the [XGR Homepage](https://xgr.opgames.org/) and the [collection registry](public/registry/index.json) makes it easy to update the page with new collections, it is a point of centralization and is not permissionless. Further work on moving this to an on-chain registry similar to [EIP-6551](https://eips.ethereum.org/EIPS/eip-6551) should be explored. 
