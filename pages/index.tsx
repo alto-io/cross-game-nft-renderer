@@ -128,7 +128,7 @@ export default function Home() {
               use-nft <span>-&gt;</span>
             </h2>
             <p className={inter.className}>
-              This project uses spectre&apos;s use-nft to retrieve NFT attributes and as a fallback renderer
+              This project uses Spectre&apos;s use-nft to retrieve NFT attributes and as a fallback renderer
             </p>
           </a>
 

@@ -1,7 +1,7 @@
 [
     {
         "name": "Arcadians",
-        "homepage": "https://www.cryptokitties.co/",
+        "homepage": "https://www.arcadians.io/",
         "address": "0xc3c8a1e1ce5386258176400541922c414e1b35fd",
         "chainid": "1",
         "renderer_url": "https://xgr-arcadians.opgames.org/renderer.json"
