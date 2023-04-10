@@ -88,6 +88,22 @@ export default function Home() {
             </p>
           </a>
 
+
+          <a
+            href="https://github.com/alto-io/xgr-arcadians"
+            className={styles.card}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2 className={inter.className}>
+              XGR-Arcadians<span>-&gt;</span>
+            </h2>
+            <p className={inter.className}>
+              Example rendering implementation for the Arcadians collection. Uses ORA files for image layers and GLTF for animation
+            </p>
+          </a>
+
+
           <a
             href="https://github.com/alto-io/arcadians-avatar-builder"
             className={styles.card}
@@ -101,7 +117,6 @@ export default function Home() {
               Supporting avatar customization project using the Arcadians collection
             </p>
           </a>
-
 
           <a
             href="https://use-nft.spectre.xyz/"
