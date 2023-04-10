@@ -16,7 +16,7 @@ type TokenIdProps = {
     onRefresh: any
 }
 
-const MAX_TOKEN_ID = 3700;
+const RANDOM_ID_MAX = 673;
 const MAX_TOKEN_ID_INPUT=9999;
 
 function TokenIdInput({tokenId, onRefresh } : TokenIdProps) {
@@ -82,7 +82,7 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftPr
     const [xgr, setXgr] = useState(true);    
 
     useEffect(() => {
-        setTokenId(Math.floor(Math.random() *  MAX_TOKEN_ID).toString());
+        setTokenId(Math.floor(Math.random() *  RANDOM_ID_MAX).toString());
     },[]);
 
   const refreshToken = (newId) => {
@@ -90,7 +90,7 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftPr
   }
 
   const randomToken = () => {
-    var id = Math.floor(Math.random() * MAX_TOKEN_ID);
+    var id = Math.floor(Math.random() * RANDOM_ID_MAX);
     setTokenId(id.toString());
   }
 
