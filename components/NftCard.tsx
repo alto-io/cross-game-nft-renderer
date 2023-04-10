@@ -104,7 +104,11 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftPr
         {
             rendererUrl && (
                 <div className={xgrstyles.xgrdiv}>
-                    <XGRSwitch xgr={xgr} setXgr={setXgr}/>
+                    <a href={rendererUrl} target="_blank">
+                    🔗
+                    </a>
+                <XGRSwitch xgr={xgr} setXgr={setXgr}/>
+
                 </div>
             )
         }

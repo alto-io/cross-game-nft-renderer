@@ -22,6 +22,30 @@ Adding more and more collections that are XGR-enabled on the [XGR Homepage](http
 
 To do so, simply create a pull request updating the registry on [public/registry/index.json](public/registry/index.json)
 
+## renderer_url
+
+The **renderer_url** is the starting point for XGR-enabling a collection. It has to be in JSON format and retrievable via a URL. 
+
+The XGR-Arcadians example hosts its **renderer_url** on [https://xgr-arcadians.opgames.org/renderer.json]("https://xgr-arcadians.opgames.org/renderer.json"), and is shown below:
+
+```yaml
+{
+    name: "Arcadians Renderer",
+    description: "Part collections stored in .ora and animation data stored in .gltf",
+    project_url: "https://github.com/alto-io/xgr-arcadians",
+    image: "https://xgr-arcadians.opgames.org/image/",
+    animation_url: "https://xgr-arcadians.opgames.org/animation/",
+    playground_url: "https://playground.arcadians.io",
+    ora_url: "https://xgr-arcadians.opgames.org/assets/arcadians.ora",
+    gltf_url: "https://xgr-arcadians.opgames.org/assets/arcadians.gltf"
+}
+```
+
+The **name**, **description**, **project_url**, **image**, and **animation_url** fields are required.
+
+The others are specific to the XGR-Arcadians implementation.
+
+
 ## Further Work
 
 * XGR-Arcadians uses GLTF, which is more broadly supported on 3D Game engines such as BabylonJS and Unity. An animation implementation for 2D engines such as Phaser would be very useful, perhaps using [.json files for 2d skeletal animation](https://github.com/EsotericSoftware/spine-runtimes/).

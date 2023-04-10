@@ -40,7 +40,6 @@ const XGR = ({rendererUrl, tokenId}) => {
 
   useEffect( () => {
 
-    console.log(url);
   }, [url]);
 
   return (
