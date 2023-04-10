@@ -41,9 +41,9 @@ The XGR-Arcadians example hosts its **renderer_url** on [https://xgr-arcadians.o
 }
 ```
 
-The **name**, **description**, **project_url**, **image**, and **animation_url** fields are required.
+The **name**, **description**, **project_url**, **image**, and **animation_url** fields are required. The **image** and **animation_url** works similarly to how they are used in marketplaces such as Opensea, and will be appended with a tokenid.
 
-The others are specific to the XGR-Arcadians implementation.
+The **playground_url**, **ora_url** and **gltf_url** are specific to the XGR-Arcadians implementation. Other implementations can add the fields developers will need to download for their collection assets.
 
 
 ## Further Work
