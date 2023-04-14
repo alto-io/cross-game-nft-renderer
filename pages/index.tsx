@@ -46,6 +46,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
+        <div className={styles.newsbanner}>
+          <a href="https://github.com/alto-io/xgr-arcadians/tree/main/public/assets" target="_blank">WELCOME, GAMEDEV.JS PARTICIPANTS! 👉 CLICK HERE 👈 FOR LINKS TO ARCADIANS ASSETS AND RENDERER SOURCE CODE</a>
+        </div>
         <div className={styles.description}>
           <p>
             Cross-Game Renderer (XGR): Display and animate NFTs in any game
