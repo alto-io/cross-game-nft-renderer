@@ -10,11 +10,12 @@ type NftProps = {
   contract: string
   tokenId: string
   rendererUrl: string
+  chainId: string
   xgr: boolean
   randomRefresh: any
 }
 
-function Nft({ contract, tokenId, rendererUrl, xgr, randomRefresh }: NftProps) {
+function Nft({ contract, tokenId, rendererUrl, xgr, chainId, randomRefresh }: NftProps) {
   const { nft, loading, error, reload } = useNft(contract, tokenId)
 
   return (

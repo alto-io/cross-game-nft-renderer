@@ -9,6 +9,7 @@ type NftProps = {
   collectionName: string
   collectionUrl: string
   rendererUrl: string
+  chainId: string
 }
 
 type TokenIdProps = {
@@ -76,7 +77,7 @@ function TokenIdInput({tokenId, onRefresh } : TokenIdProps) {
     )
 }
 
-function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftProps) {
+function NftCard({ contract, collectionName, collectionUrl, rendererUrl, chainId }: NftProps) {
 
     const [tokenId, setTokenId] = useState("1");
     const [xgr, setXgr] = useState(true);    
@@ -99,7 +100,6 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftPr
         <div className={styles.cardlabel}>
           <a href={collectionUrl} target="_blank">{collectionName}</a>
         </div>
-
         <TokenIdInput tokenId={tokenId} onRefresh={refreshToken}></TokenIdInput>
         {
             rendererUrl && (
@@ -117,6 +117,7 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl }: NftPr
             contract={contract}
             tokenId={tokenId}
             rendererUrl={rendererUrl}
+            chainId={chainId}
             xgr={xgr}
             randomRefresh={randomToken}
             />

@@ -44,6 +44,7 @@ function NftGrid({ nftCollections }: NftGridProps) {
               collectionName={collection.name}
               collectionUrl={collection.homepage}
               rendererUrl={collection.renderer_url}
+              chainId={collection.chainid}
             />
           </a.div>
         )

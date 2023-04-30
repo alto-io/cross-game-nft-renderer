@@ -7,6 +7,13 @@
         "renderer_url": "https://xgr-arcadians.opgames.org/renderer.json"
     },
     {
+        "name": "Arcadians: Reloaded",
+        "homepage": "https://arcadians.io",
+        "address": "0xe49C4BcE61D70809f95A6dcfeFf3294Cb2CC5C34",
+        "chainid": "80001",
+        "renderer_url": "https://xgr-arcadians-reloaded.vercel.app/renderer.json"
+    },
+    {
         "name": "Creepz",
         "homepage": "https://overlord.xyz",
         "address": "0x5946aeaab44e65eb370ffaa6a7ef2218cff9b47d",
