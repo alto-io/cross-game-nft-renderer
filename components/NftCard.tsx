@@ -3,7 +3,7 @@ import styles from '../styles/Home.module.css'
 import xgrstyles from '../styles/xgr.module.css'
 import Nft from "./Nft"
 import XGRSwitch from "components/xgrswitch"
-import ChainTag from "components/ChainTag"
+import ChainTag from "components/chaintag"
 
 type NftProps = {
   contract: string
