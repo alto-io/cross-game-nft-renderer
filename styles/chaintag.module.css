@@ -1,11 +1,11 @@
 .chaintagdiv {
     position: absolute;
     top: 50px;
-    left: 5px;
+    left: 0px;
     font-family: Arial, sans-serif;
     font-size: 12px;
     padding: 4px 8px;
-    border-radius: 16px;
+    border-radius: 0px 16px 16px 0px;
   
   }
 
