@@ -44,7 +44,7 @@ function NFTFromEthers({ chainId, contract, xgr, rendererUrl, tokenId, randomRef
   
     const name = "Untitled"
     const description = "−"
-    const attributes = null
+    const attributes = []
 
     const INFURA_KEY = process.env.NEXT_PUBLIC_INFURA_KEY
 
