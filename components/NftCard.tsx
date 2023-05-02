@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css'
 import xgrstyles from '../styles/xgr.module.css'
 import Nft from "./Nft"
 import XGRSwitch from "components/xgrswitch"
+import ChainTag from "components/ChainTag"
 
 type NftProps = {
   contract: string
@@ -112,7 +113,11 @@ function NftCard({ contract, collectionName, collectionUrl, rendererUrl, chainId
                 </div>
             )
         }
+        <ChainTag contract={contract} chainId={chainId}/>
+
         <button className={styles.randombutton} onClick={randomToken}>🎲</button>
+
+
         <Nft 
             contract={contract}
             tokenId={tokenId}

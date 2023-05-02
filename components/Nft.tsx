@@ -5,6 +5,7 @@ import { useNft } from "use-nft"
 import styles from "../styles/Home.module.css"
 
 import NFTDetails from "./NftDetails"
+import NFTFromEthers from "./NftFromEthers"
 
 type NftProps = {
   contract: string
@@ -20,7 +21,10 @@ function Nft({ contract, tokenId, rendererUrl, xgr, chainId, randomRefresh }: Nf
 
   return (
     <Card >
-      {(() => {
+      {
+        // if mainnet, use useNFT
+        chainId === "1" &&
+        (() => {
         if (loading) return <NftLoading />
         if (error) return <NftError error={error} reload={reload} randomRefresh={randomRefresh} />
         return (
@@ -30,6 +34,20 @@ function Nft({ contract, tokenId, rendererUrl, xgr, chainId, randomRefresh }: Nf
         )
 
       })()}
+
+      {
+        // otherwise load using ethers
+        chainId !== "1" &&
+        <NFTFromEthers 
+          chainId={chainId}
+          contract={contract}
+          xgr={xgr}
+          rendererUrl={rendererUrl}
+          tokenId={tokenId}          
+          randomRefresh={randomRefresh}  
+          />
+
+      }      
     </Card>
   )
 }

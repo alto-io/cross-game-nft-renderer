@@ -1,0 +1,31 @@
+.chaintagdiv {
+    position: absolute;
+    top: 50px;
+    left: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    padding: 4px 8px;
+    border-radius: 16px;
+  
+  }
+
+.mainnet {
+  background-color: #29b6af;
+  color: black;
+}
+
+.mumbai {
+  background-color: violet;
+  color: black;
+}
+
+.chaintagtext {
+    margin: 0px;
+    transition: color 200ms;
+  }
+
+.chaintagtext:hover {
+  margin: 0px;
+  color: white;
+}
+
